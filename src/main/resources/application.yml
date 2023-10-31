@@ -1,0 +1,60 @@
+server:
+  # 端口
+  port: 8080
+spring:
+  # 应用名称
+  application:
+    name: BlogApplication
+  # mysql配置
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/blog?serverTimezone=Asia/Shanghai&allowMultiQueries=true&rewriteBatchedStatements=true
+    username: root
+    password: admin5698
+  # 文件上传限制
+  servlet:
+    multipart:
+      max-request-size: 100MB
+      max-file-size: 100MB
+upload:
+  oss:
+    url: https://starsky-blog.oss-cn-guangzhou.aliyuncs.com
+    endpoint: oss-cn-guangzhou.aliyuncs.com
+    bucketName: starsky-blog
+    accessKeyId: LTAI5tFCGAhiR2LDeqZyHPjg
+    accesskeySecret: KoGRrOEr9jPwbpO2wnRPFZSjnqvcG3
+# mybatisPlus配置
+mybatis-plus:
+  # mapper映射地址
+  mapper-locations: classpath:mapper/*.xml
+  # 实体类扫描包路径
+  type-aliases-package: com.blog.entity
+  configuration:
+    # sql打印
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+    # 开启驼峰命名
+    map-underscore-to-camel-case: true
+  global-config:
+    db-config:
+      table-prefix: t_
+sa-token:
+  # token名称 (同时也是cookie名称)
+  token-name: Authorization
+  # token前缀
+  token-prefix: Bearer
+  # token有效期，单位s 默认30天, -1代表永不过期
+  timeout: 1800
+  # token临时有效期 (指定时间内无操作就视为token过期) 单位: 秒
+  activity-timeout: -1
+  # 关闭自动续签
+  auto-renew: false
+  # token风格
+  token-style: uuid
+  # 是否从cookie中读取token
+  is-read-cookie: false
+  # 是否从请求体里读取token
+  is-read-body: false
+  # 是否从header中读取token
+  is-read-header: true
+  # 是否输出操作日志
+  is-log: false
