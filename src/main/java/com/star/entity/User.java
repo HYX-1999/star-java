@@ -1,55 +1,72 @@
 package com.star.entity;
 
-import java.time.LocalDateTime;
+import com.baomidou.mybatisplus.annotation.*;
+import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
+import lombok.*;
 
-import com.baomidou.mybatisplus.annotation.FieldFill;
-import com.baomidou.mybatisplus.annotation.IdType;
-import com.baomidou.mybatisplus.annotation.TableField;
-import com.baomidou.mybatisplus.annotation.TableId;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import java.io.Serializable;
+import java.util.Date;
 
 /**
- * 用户
- *
- * @author hyx
+ * 系统管理-用户基础信息表
  */
 @Data
 @Builder
-@NoArgsConstructor
+@EqualsAndHashCode(callSuper = false)
+@TableName("b_user")
+@ApiModel(value="User对象", description="系统管理-用户基础信息表")
 @AllArgsConstructor
-public class User {
-    /**
-     * 用户id
-     */
-    @TableId(type = IdType.AUTO)
+@NoArgsConstructor
+public class User implements Serializable {
+
+    private static final long serialVersionUID=1L;
+
+    @ApiModelProperty(value = "主键ID")
+    @TableId(value = "id", type = IdType.ASSIGN_UUID)
     private String id;
-    /**
-     * 创建时间
-     */
-    @TableField(fill = FieldFill.INSERT)
-    private LocalDateTime createTime;
-    /**
-     * 更新时间
-     */
-    @TableField(fill = FieldFill.UPDATE)
-    private LocalDateTime updateTime;
-    /**
-     * 是否禁用
-     */
-    private Integer isDisable;
-    /**
-     * 用户名
-     */
+
+    @ApiModelProperty(value = "账号")
     private String username;
-    /**
-     * 密码
-     */
+
+    @ApiModelProperty(value = "登录密码")
     private String password;
-    /**
-     * 角色
-     */
-    private Integer role;
+
+    @ApiModelProperty(value = "状态")
+    private Integer status;
+
+
+    @ApiModelProperty(value = "创建时间")
+    @TableField(fill = FieldFill.INSERT)
+    private Date createTime;
+
+    @ApiModelProperty(value = "最后更新时间")
+    @TableField(fill = FieldFill.UPDATE)
+    private Date updateTime;
+
+    @ApiModelProperty(value = "最后登录时间")
+    @TableField(fill = FieldFill.UPDATE)
+    private Date lastLoginTime;
+
+    @ApiModelProperty(value = "角色ID")
+    private Integer roleId;
+
+    @ApiModelProperty(value = "IP地址")
+    private String ipAddress;
+
+    @ApiModelProperty(value = "IP来源")
+    private String ipSource;
+
+    @ApiModelProperty(value = "登录系统")
+    private String os;
+
+    @ApiModelProperty(value = "浏览器")
+    private String browser;
+
+    @ApiModelProperty(value = "用户信息id")
+    private Integer userInfoId;
+
+    @ApiModelProperty(value = "登录类型")
+    private Integer loginType;
+
 }

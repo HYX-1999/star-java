@@ -1,43 +1,34 @@
 package com.star.controller;
 
+import cn.dev33.satoken.annotation.SaCheckLogin;
+import cn.dev33.satoken.stp.StpUtil;
+import com.star.common.ResponseResult;
 import com.star.model.dto.LoginDTO;
-import com.star.model.dto.RegisterDTO;
-import com.star.model.vo.Result;
 import com.star.service.LoginService;
 import io.swagger.annotations.Api;
-import io.swagger.annotations.ApiOperation;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.validation.annotation.Validated;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-/**
- * 登录控制器
- */
-@Api(tags = "登录模块")
 @RestController
+@Api(tags = "登录接口")
+@RequiredArgsConstructor
 public class LoginController {
 
-    @Autowired
-    private LoginService loginService;
+    private final LoginService loginService;
 
-    /**
-     * 用户登录
-     *
-     * @param login 登录参数
-     * @return {@link String} Token
-     */
-    @ApiOperation(value = "用户登录")
-    @PostMapping("/login")
-    public Result<String> login(@Validated @RequestBody LoginDTO login) {
-        return Result.success(loginService.login(login));
+    @PostMapping("login")
+    public ResponseResult login(@Validated @RequestBody LoginDTO loginDTO) {
+        return loginService.login(loginDTO);
     }
 
-    @ApiOperation(value = "用户注册")
-    @PostMapping("/register")
-    public Result<?> register(@Validated @RequestBody RegisterDTO register) {
-        loginService.register(register);
-        return Result.success();
+    @SaCheckLogin
+    @GetMapping("logout")
+    public ResponseResult logout() {
+        StpUtil.logout();
+        return ResponseResult.success("退出成功");
     }
 }
