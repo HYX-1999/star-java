@@ -11,17 +11,12 @@ import java.lang.annotation.*;
 public @interface AccessLimit {
 
     /**
-     * 在时间窗内的限流次数
+     * 限制周期(秒)
      */
-    int count() default 10;
+    int seconds();
 
     /**
-     * 限流时间窗
+     * 规定周期内限制次数
      */
-    int time() default 10;
-
-    /**
-     * 超过限流次数是否也放行
-     */
-    boolean pass() default false;
+    int maxCount();
 }

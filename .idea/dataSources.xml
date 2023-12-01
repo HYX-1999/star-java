@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="starsky" uuid="d4010297-08ae-4a4e-8a15-781d7f7dc5ef">
+    <data-source source="LOCAL" name="star" uuid="25e7f209-b544-47c0-b32c-bd2e458ace6e">
       <driver-ref>mysql.8</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>com.mysql.cj.jdbc.Driver</jdbc-driver>
-      <jdbc-url>jdbc:mysql://localhost:3306/blog</jdbc-url>
+      <jdbc-url>jdbc:mysql://localhost:3306/blog_java</jdbc-url>
       <working-dir>$ProjectFileDir$</working-dir>
     </data-source>
   </component>
