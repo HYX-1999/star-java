@@ -1,14 +1,22 @@
 server:
-  # 端口
-  port: 8080
+  port: 3000
 
 spring:
-  # mysql配置
   datasource:
+    type: com.zaxxer.hikari.HikariDataSource
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/blog_java?serverTimezone=Asia/Shanghai&allowMultiQueries=true&rewriteBatchedStatements=true
+    url: jdbc:mysql://localhost:3306/blog_java?serverTimezone=Asia/Shanghai&allowMultiQueries=true
     username: root
     password: admin5698
+    hikari:
+      minimum-idle: 10
+      idle-timeout: 180000
+      maximum-pool-size: 100
+      auto-commit: true
+      pool-name: MyHikariCP
+      max-lifetime: 60000
+      connection-timeout: 30000
+      connection-test-query: SELECT 1
 
   redis:
     host: 192.168.238.129
@@ -22,26 +30,22 @@ spring:
         max-active: 100
         max-wait: 10000
 
-  # 文件上传限制
   servlet:
     multipart:
-      max-request-size: 100MB
       max-file-size: 100MB
+      max-request-size: 100MB
 
-# mybatisPlus配置
 mybatis-plus:
-  # mapper映射地址
   mapper-locations: classpath:mapper/*.xml
   configuration:
-    # sql打印
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
-    # 开启驼峰命名
     map-underscore-to-camel-case: true
 
 upload:
+  mode: oss
   oss:
     url: https://starsky-blog.oss-cn-guangzhou.aliyuncs.com
     endpoint: oss-cn-guangzhou.aliyuncs.com
-    bucketName: starsky-blog
     accessKeyId: LTAI5tFCGAhiR2LDeqZyHPjg
-    accesskeySecret: KoGRrOEr9jPwbpO2wnRPFZSjnqvcG3
+    accessKeySecret: KoGRrOEr9jPwbpO2wnRPFZSjnqvcG3
+    bucketName: starsky-blog

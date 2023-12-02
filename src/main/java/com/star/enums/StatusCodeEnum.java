@@ -30,4 +30,5 @@ public enum StatusCodeEnum {
     private final Integer code;
 
     private final String desc;
+
 }

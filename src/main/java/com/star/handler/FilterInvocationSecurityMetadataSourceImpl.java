@@ -18,6 +18,7 @@ import java.util.List;
 @Component
 public class FilterInvocationSecurityMetadataSourceImpl implements FilterInvocationSecurityMetadataSource {
 
+
     @Autowired
     private RoleMapper roleMapper;
 
@@ -62,5 +63,4 @@ public class FilterInvocationSecurityMetadataSourceImpl implements FilterInvocat
     public boolean supports(Class<?> clazz) {
         return FilterInvocation.class.isAssignableFrom(clazz);
     }
-
 }

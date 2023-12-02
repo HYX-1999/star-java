@@ -27,9 +27,6 @@ public class IpUtils {
 
     private static Method method;
 
-    /**
-     * 在Nginx等代理之后获取用户真实IP地址
-     */
     public static String getIpAddress(HttpServletRequest request) {
         String ipAddress = request.getHeader("X-Real-IP");
         if (ipAddress == null || ipAddress.length() == 0 || "unknown".equalsIgnoreCase(ipAddress)) {

@@ -24,9 +24,6 @@ import javax.servlet.http.HttpServletRequest;
 import java.lang.reflect.Method;
 import java.util.Objects;
 
-/**
- * AOP记录操作日志
- **/
 @Aspect
 @Component
 public class OperationLogAspect {

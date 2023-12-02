@@ -22,6 +22,7 @@ import java.util.UUID;
 import static com.star.constant.AuthConstant.*;
 import static com.star.constant.RedisConstant.LOGIN_USER;
 
+
 @Service
 public class TokenServiceImpl implements TokenService {
 

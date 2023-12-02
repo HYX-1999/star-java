@@ -1,13 +1,13 @@
 package com.star.entity;
 
 import com.baomidou.mybatisplus.annotation.*;
-import io.swagger.annotations.ApiModel;
-import io.swagger.annotations.ApiModelProperty;
-import lombok.*;
 
-import java.io.Serializable;
 import java.time.LocalDateTime;
-import java.util.Date;
+
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Data
 @Builder

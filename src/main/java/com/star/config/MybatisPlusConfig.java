@@ -7,9 +7,6 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
-/**
- * MybatisPlus配置
- */
 @EnableTransactionManagement
 @Configuration
 public class MybatisPlusConfig {
@@ -20,4 +17,5 @@ public class MybatisPlusConfig {
         interceptor.addInnerInterceptor(new PaginationInnerInterceptor(DbType.MYSQL));
         return interceptor;
     }
+
 }

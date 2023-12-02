@@ -120,3 +120,4 @@ public interface RedisService {
     List<String> geoGetHash(String key, String... place);
 
 }
+

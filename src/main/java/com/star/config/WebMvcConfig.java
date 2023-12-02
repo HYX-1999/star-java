@@ -1,5 +1,6 @@
 package com.star.config;
 
+
 import com.star.interceptor.PaginationInterceptor;
 import com.star.interceptor.AccessLimitInterceptor;
 import org.springframework.beans.factory.annotation.Autowired;

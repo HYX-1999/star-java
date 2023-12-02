@@ -14,7 +14,6 @@ import java.util.stream.Collectors;
 
 @Component
 public class AccessDecisionManagerImpl implements AccessDecisionManager {
-
     @Override
     public void decide(Authentication authentication, Object o, Collection<ConfigAttribute> collection) throws AccessDeniedException, InsufficientAuthenticationException {
         List<String> permissionList = authentication.getAuthorities()
@@ -38,5 +37,4 @@ public class AccessDecisionManagerImpl implements AccessDecisionManager {
     public boolean supports(Class<?> aClass) {
         return true;
     }
-
 }

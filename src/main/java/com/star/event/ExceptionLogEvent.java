@@ -4,5 +4,7 @@ import com.star.entity.ExceptionLog;
 import org.springframework.context.ApplicationEvent;
 
 public class ExceptionLogEvent extends ApplicationEvent {
-    public ExceptionLogEvent(ExceptionLog exceptionLog) { super(exceptionLog); }
+    public ExceptionLogEvent(ExceptionLog exceptionLog) {
+        super(exceptionLog);
+    }
 }

@@ -4,9 +4,6 @@ import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 
 import java.util.Objects;
 
-/**
- * 分页工具类
- */
 public class PageUtils {
 
     private static final ThreadLocal<Page<?>> PAGE_HOLDER = new ThreadLocal<>();
@@ -31,11 +28,12 @@ public class PageUtils {
         return getPage().getSize();
     }
 
-    public static Long getLimit() {
+    public static Long getLimitCurrent() {
         return (getCurrent() - 1) * getSize();
     }
 
     public static void remove() {
         PAGE_HOLDER.remove();
     }
+
 }
